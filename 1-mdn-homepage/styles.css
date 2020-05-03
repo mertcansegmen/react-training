@@ -22,6 +22,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     margin-top: 64px;
     padding: 0 15%;
 }
@@ -36,6 +37,7 @@ body {
     color: black;
     text-decoration: none;
     min-width: 250px;
+    cursor:pointer;
 }
 
 .fa-arrow-right {

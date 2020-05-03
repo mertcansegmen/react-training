@@ -5,16 +5,44 @@ window.addEventListener('DOMContentLoaded', () => {
 function addNewsletterSubmitEventListener() {
     document.querySelector('.newsletter-form').addEventListener('submit', function(e){
         e.preventDefault();
-        
+
         const emailInput = document.querySelector("#emailInput");
-        const buttonTextNodes = document.querySelectorAll(".billboard-btn .billboard-btn-title");
-    
-        const selectedButtonTextNode = Array.from(buttonTextNodes).filter(node => {
-            return node.innerText.toLowerCase() === emailInput.value.toLowerCase();
-        })[0];
-    
-        selectedButtonTextNode && (selectedButtonTextNode.parentElement.style.visibility = 'hidden');
+
+        addBillboardButton(emailInput.value);
 
         emailInput.value = "";
     })
+}
+
+function addBillboardButton(buttonText) {
+    // Get container which the buttons will be added to
+    const buttonContainer = document.querySelector(".billboard-btn-container");
+
+    // Create button
+    const button = document.createElement("a");
+    button.classList.add("billboard-btn");
+    button.classList.add("hvr-forward");
+    button.addEventListener('click', () => newsletterButtonClicked(button));
+
+    // Create span element for button text
+    const textSpan = document.createElement("span");
+    textSpan.classList.add("billboard-btn-title");
+
+    // Create button text
+    const text = document.createTextNode(buttonText)
+
+    // Create icon
+    const icon = document.createElement("i");
+    icon.classList.add("fas");
+    icon.classList.add("fa-arrow-right");
+
+    // Combine them together
+    buttonContainer.appendChild(button);
+    button.appendChild(textSpan);
+    button.appendChild(icon);
+    textSpan.appendChild(text);
+}
+
+function newsletterButtonClicked(button) {
+    button.style.display = 'none';
 }
