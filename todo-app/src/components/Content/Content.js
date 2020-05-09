@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Content.css";
 import AddTodo from "../AddTodo/AddTodo";
 

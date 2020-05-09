@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Sidebar.css";
 import fb from "../../images/facebook.png";
 import wp from "../../images/whatsapp.png";
