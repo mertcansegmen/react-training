@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+}
+
+.fake-content {
+  height: 100px;
+  background-color: #444;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}

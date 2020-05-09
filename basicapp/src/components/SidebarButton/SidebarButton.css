@@ -1,0 +1,38 @@
+.sidebar__item-container--divider {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #777;
+}
+
+.sidebar__item-container--no-divider {
+  text-align: center;
+  padding: 10px;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0;
+  color: white;
+  font-weight: normal;
+}
+
+.logo {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+  .sidebar__item {
+    padding: 5px 70px;
+    font-weight: bold;
+  }
+
+  .logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+  }
+}

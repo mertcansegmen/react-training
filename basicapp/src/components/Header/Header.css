@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.header__button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.header__button {
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.header__title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+  }
+}
