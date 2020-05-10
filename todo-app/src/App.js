@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Content from "./components/Content/Content";
+import Todos from "./components/Todos/Todos";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <div className="main-content">
         <Sidebar />
-        <Content />
+        <Todos />
       </div>
     </>
   );

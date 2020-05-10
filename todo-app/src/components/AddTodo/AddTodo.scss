@@ -1,20 +1,22 @@
-.search-form {
+@import "../../styles/colors";
+
+.todos__add-todo-form {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   margin: 10px;
 }
 
-.search-form__search-input {
+.add-todo-form__add-todo-input {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid $borderColor;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-.search-form__search-btn {
+.add-todo-form__add-todo-btn {
   background-color: #4caf50;
   color: white;
   padding: 14px 20px;
@@ -25,15 +27,15 @@
 }
 
 @media (min-width: 768px) {
-  .search-form {
+  .todos__add-todo-form {
     flex-direction: row;
   }
 
-  .search-form__search-input {
+  .add-todo-form__add-todo-input {
     width: 75%;
   }
 
-  .search-form__search-btn {
+  .add-todo-form__add-todo-btn {
     width: 22%;
   }
 }

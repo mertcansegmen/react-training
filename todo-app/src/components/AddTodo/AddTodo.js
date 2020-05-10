@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./AddTodo.css";
+import "./AddTodo.scss";
 
 export class AddTodo extends React.Component {
   constructor(props) {
     super(props);
 
+    // this.state = Map({
+    //   title: "",
+    // });
     this.state = {
       title: "",
     };
@@ -23,15 +26,15 @@ export class AddTodo extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit} className="search-form">
+      <form onSubmit={this.onSubmit} className="todos__add-todo-form">
         <input
-          className="search-form__search-input"
+          className="add-todo-form__add-todo-input"
           name="title"
           placeholder="Add Todo"
           onChange={this.onChange}
           value={this.state.title}
         />
-        <button className="search-form__search-btn" type="submit">
+        <button className="add-todo-form__add-todo-btn" type="submit">
           Add
         </button>
       </form>

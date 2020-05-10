@@ -1,6 +1,9 @@
+@import "./styles/colors";
+
 body {
-  background-color: #aaa;
+  background-color: $backgroundColor;
 }
+
 .main-content {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,16 @@
+.todos__todo-item {
+  display: flex;
+  justify-content: space-between;
+  border: solid 1px black;
+  padding: 10px;
+  margin: 0 10px 10px;
+  border-radius: 10px;
+}
+
+.todo-item__todo-title--completed {
+  text-decoration: line-through;
+}
+
+.todo-item__todo-title--active {
+  text-decoration: none;
+}

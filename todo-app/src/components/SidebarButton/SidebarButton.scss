@@ -1,15 +1,12 @@
-.sidebar__item-container--divider {
+@import "../../styles/colors";
+
+.sidebar__item-container {
   text-align: center;
   padding: 10px;
-  border-bottom: 1px solid #777;
+  border-bottom: 1px solid $borderColor;
 }
 
-.sidebar__item-container--no-divider {
-  text-align: center;
-  padding: 10px;
-}
-
-.sidebar__item {
+.item-container__item {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -25,7 +22,7 @@
 }
 
 @media (min-width: 768px) {
-  .sidebar__item {
+  .item-container__item {
     padding: 5px 70px;
     font-weight: bold;
   }

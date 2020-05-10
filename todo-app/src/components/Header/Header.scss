@@ -1,9 +1,11 @@
+@import "../../styles/colors";
+
 .header {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background: #333;
-  color: #fff;
+  background: $headerColor;
+  color: white;
   text-align: center;
   padding: 10px 20px;
 }
@@ -13,11 +15,11 @@
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  color: #fff;
+  color: white;
   text-align: center;
 }
 
-.header__button {
+.button-container__button {
   padding: 5px;
   text-decoration: none;
   color: white;

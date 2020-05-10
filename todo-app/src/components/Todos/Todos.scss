@@ -1,0 +1,13 @@
+.main-content__todos {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+}
+
+// @media (min-width: 768px) {
+//   .content {
+//     margin-left: 300px;
+//   }
+// }
