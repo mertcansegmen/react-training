@@ -1,21 +1,23 @@
 import React from "react";
 import "./Todos.scss";
-import AddTodo from "../AddTodo/AddTodo";
-import TodoItem from "../TodoItem/TodoItem";
-import { Map, List } from "immutable";
+import AddTodo from "./AddTodo/AddTodo";
+import TodoItem from "./TodoItem/TodoItem";
+import TodoDetail from "../TodoDetail/TodoDetail";
+import * as I from "immutable";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class Todos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: List(),
+      todos: I.List(),
     };
   }
 
   addTodo = (title) => {
     if (!title) return;
 
-    const newTodo = Map({
+    const newTodo = I.Map({
       id: Math.random(),
       title,
       completed: false,
@@ -26,7 +28,7 @@ class Todos extends React.Component {
   deleteTodo = (id) => {
     this.setState({
       todos: this.state.todos.filter((todo) => {
-        return todo.get("id") !== id;
+        return todo.get("id", 0.0) !== id;
       }),
     });
   };
@@ -34,27 +36,45 @@ class Todos extends React.Component {
   completeTodo = (id) => {
     this.setState({
       todos: this.state.todos.map((todo) => {
-        if (todo.get("id") === id) {
-          return todo.set("completed", !todo.get("completed"));
+        if (todo.get("id", 0.0) === id) {
+          return todo.set("completed", !todo.get("completed", false));
         }
         return todo;
       }),
     });
   };
 
+  getTodoById = (id) => {
+    return this.state.todos.find((todo) => todo.get("id", 0) === id);
+  };
+
   render() {
     return (
       <div className="main-content__todos">
-        <AddTodo addTodo={this.addTodo} />
-
-        {this.state.todos.map((todo) => (
-          <TodoItem
-            key={todo.get("id")}
-            todo={todo}
-            completeTodo={this.completeTodo}
-            deleteTodo={this.deleteTodo}
+        <BrowserRouter>
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <React.Fragment>
+                <AddTodo addTodo={this.addTodo} />
+                {this.state.todos.map((todo) => (
+                  <TodoItem key={todo.get("id", 0.0)} todo={todo} />
+                ))}
+              </React.Fragment>
+            )}
           />
-        ))}
+          <Route
+            path="/todos/:id"
+            render={(props) => (
+              <TodoDetail
+                getTodoById={this.getTodoById}
+                completeTodo={this.completeTodo}
+                deleteTodo={this.deleteTodo}
+              />
+            )}
+          />
+        </BrowserRouter>
       </div>
     );
   }

@@ -1,20 +1,25 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./TodoItem.scss";
-import { Map, List } from "immutable";
+import { withRouter } from "react-router-dom";
 
 export class TodoItem extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    const id = this.props.todo.get("id");
-    const title = this.props.todo.get("title");
-    const completed = this.props.todo.get("completed");
-    // const { id, title, completed } = this.props.todo;
+    const id = this.props.todo.get("id", 0.0);
+    const title = this.props.todo.get("title", "todo title");
+    const completed = this.props.todo.get("completed", false);
+    console.log(this.props);
 
     return (
       <div
         className="todos__todo-item"
-        onClick={this.props.completeTodo.bind(this, id)}
-        onDoubleClick={this.props.deleteTodo.bind(this, id)}
+        // onClick={() => this.props.completeTodo(id)}
+        onClick={() => this.props.history.push(`/todos/${id}`)}
+        onDoubleClick={() => this.props.deleteTodo(id)}
       >
         <span
           className={
@@ -32,8 +37,6 @@ export class TodoItem extends Component {
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
-  completeTodo: PropTypes.func.isRequired,
-  deleteTodo: PropTypes.func.isRequired,
 };
 
-export default TodoItem;
+export default withRouter(TodoItem);
