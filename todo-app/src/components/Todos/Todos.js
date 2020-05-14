@@ -28,7 +28,7 @@ class Todos extends React.Component {
   deleteTodo = (id) => {
     this.setState({
       todos: this.state.todos.filter((todo) => {
-        return todo.get("id", 0.0) !== id;
+        return todo.get("id", 0.0) + "" !== id;
       }),
     });
   };
@@ -36,7 +36,7 @@ class Todos extends React.Component {
   completeTodo = (id) => {
     this.setState({
       todos: this.state.todos.map((todo) => {
-        if (todo.get("id", 0.0) === id) {
+        if (todo.get("id", 0.0) + "" === id) {
           return todo.set("completed", !todo.get("completed", false));
         }
         return todo;
@@ -45,13 +45,16 @@ class Todos extends React.Component {
   };
 
   getTodoById = (id) => {
-    return this.state.todos.find((todo) => todo.get("id", 0) === id);
+    return this.state.todos.find((todo) => {
+      return todo.get("id", 0) + "" === id + "";
+    });
   };
 
   render() {
     return (
       <div className="main-content__todos">
         <BrowserRouter>
+          {/* Todos */}
           <Route
             exact
             path="/"
@@ -64,6 +67,8 @@ class Todos extends React.Component {
               </React.Fragment>
             )}
           />
+
+          {/* Todo Details */}
           <Route
             path="/todos/:id"
             render={(props) => (

@@ -10,26 +10,34 @@ class TodoDetail extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    const todo =
+      this.props.getTodoById(this.props.match.params.id) ||
+      I.Map({ title: "todo not found", completed: false });
+
     return (
       <div className="main-content__todo-detail">
-        {/* {JSON.stringify(this.props)} */}
-        <h3>{this.props.getTodoById(this.props.match.params.id)}</h3>
+        <h3>{todo.get("title", "todo title")}</h3>
 
         <div className="todo-detail__buttons">
           <button
             className="btn btn-warning"
             type="submit"
-            onClick={() => this.props.completeTodo(this.props.match.params.id)}
+            onClick={() => {
+              this.props.completeTodo(this.props.match.params.id);
+              this.props.history.goBack();
+            }}
           >
-            Complete
+            {todo.completed ? "Activate" : "Complete"}
           </button>
           <button
             className="btn btn-error"
             type="submit"
-            onClick={() => this.props.deleteTodo(this.props.match.params.id)}
+            onClick={() => {
+              this.props.deleteTodo(this.props.match.params.id);
+              this.props.history.goBack();
+            }}
           >
-            Delete
+            {"Delete"}
           </button>
         </div>
       </div>
