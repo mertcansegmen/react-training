@@ -1,0 +1,35 @@
+@import "../../../styles/colors";
+
+.sidebar__item-container {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid $borderColor;
+}
+
+.item-container__item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0;
+  color: white;
+  font-weight: normal;
+}
+
+.logo {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+  .item-container__item {
+    padding: 5px 70px;
+    font-weight: bold;
+  }
+
+  .logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+  }
+}

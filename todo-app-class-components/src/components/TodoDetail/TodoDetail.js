@@ -19,6 +19,7 @@ class TodoDetail extends React.Component {
         <h3>{todo.get("title", "todo title")}</h3>
 
         <div className="todo-detail__buttons">
+          {/* Complete Button */}
           <button
             className="btn btn-warning"
             type="submit"
@@ -27,8 +28,10 @@ class TodoDetail extends React.Component {
               this.props.history.goBack();
             }}
           >
-            {todo.completed ? "Activate" : "Complete"}
+            {todo.get("completed", false) ? "Activate" : "Complete"}
           </button>
+
+          {/* Delete Button */}
           <button
             className="btn btn-error"
             type="submit"

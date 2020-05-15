@@ -1,0 +1,32 @@
+@import "../../styles/buttons";
+
+.main-content__todo-detail {
+  padding: 8px;
+}
+
+.todo-detail__buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons_complete-btn {
+  margin-right: 0;
+}
+
+.buttons_delete-btn {
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .todo-detail__buttons {
+    flex-direction: row;
+  }
+
+  .buttons_complete-btn {
+    margin-right: 16px;
+  }
+
+  .buttons_delete-btn {
+    margin-top: 0;
+  }
+}

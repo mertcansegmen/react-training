@@ -1,0 +1,24 @@
+.main-content__sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #555;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+@media (min-width: 768px) {
+  .main-content__sidebar {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 20px;
+    // position: fixed;
+    height: calc(100vh - 100px);
+  }
+}
+
+@media (max-width: 350px) {
+  .main-content__sidebar {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,17 @@
+@import "./styles/colors";
+
+body {
+  background-color: $backgroundColor;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,41 @@
+@import "../../../styles/colors";
+
+.todos__add-todo-form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.add-todo-form__add-todo-input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-todo-form__add-todo-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .todos__add-todo-form {
+    flex-direction: row;
+  }
+
+  .add-todo-form__add-todo-input {
+    width: 75%;
+  }
+
+  .add-todo-form__add-todo-btn {
+    width: 22%;
+  }
+}
